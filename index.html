@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مذكرة رسمية – منصة ارتقِ | الأستاذ خليل البلوشي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D2B4E;
+    --royal: #1A4A7A;
+    --azure: #2471A3;
+    --sky: #5DADE2;
+    --gold: #C9A227;
+    --gold-light: #F5D78E;
+    --cream: #FDFBF7;
+    --warm-white: #F9F6F0;
+    --text-dark: #1A1A2E;
+    --text-mid: #344152;
+    --text-soft: #5D6D7E;
+    --border: #D5E4F2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: #D8E4EF;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    color: var(--text-dark);
+  }
+
+  .page {
+    background: var(--cream);
+    width: 794px;
+    min-height: 1123px;
+    position: relative;
+    box-shadow: 0 20px 80px rgba(13,43,78,0.25), 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+
+  /* Decorative corner ornament */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: linear-gradient(225deg, var(--navy) 0%, var(--royal) 50%, transparent 70%);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    z-index: 0;
+  }
+
+  .page::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 150px; height: 150px;
+    background: linear-gradient(45deg, var(--navy) 0%, var(--royal) 50%, transparent 70%);
+    clip-path: polygon(0 100%, 0 0, 100% 100%);
+    z-index: 0;
+  }
+
+  /* Gold corner accent */
+  .corner-gold {
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 60px;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .corner-gold::after {
+    content: '✦';
+    position: absolute;
+    top: 8px; right: 8px;
+    color: var(--gold);
+    font-size: 22px;
+    filter: drop-shadow(0 1px 3px rgba(201,162,39,0.5));
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: relative;
+    z-index: 1;
+    padding: 36px 50px 0;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .ministry-block {
+    text-align: right;
+  }
+
+  .ministry-name {
+    font-family: 'Amiri', serif;
+    font-size: 13px;
+    color: var(--text-soft);
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+
+  .doc-meta {
+    text-align: left;
+    font-size: 11px;
+    color: var(--text-soft);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  .doc-meta span {
+    display: block;
+  }
+
+  .doc-meta strong {
+    color: var(--azure);
+    font-weight: 600;
+  }
+
+  /* Divider with ornament */
+  .header-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to left, var(--navy), var(--azure), transparent);
+  }
+
+  .divider-line.rev {
+    background: linear-gradient(to right, var(--navy), var(--azure), transparent);
+  }
+
+  .divider-ornament {
+    color: var(--gold);
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* Bismillah */
+  .bismillah {
+    text-align: center;
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    color: var(--text-soft);
+    font-style: italic;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+
+  /* Title block */
+  .title-block {
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .title-label {
+    display: inline-block;
+    background: var(--navy);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 5px 20px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .title-main {
+    font-family: 'Amiri', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .title-sub {
+    font-size: 15px;
+    color: var(--azure);
+    font-weight: 600;
+  }
+
+  /* Gold underline */
+  .title-underline {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to left, var(--gold), var(--gold-light), var(--gold));
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ===== INFO TABLE ===== */
+  .info-table-wrap {
+    padding: 0 50px 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 12px;
+  }
+
+  .info-table tr:nth-child(even) td {
+    background: var(--warm-white);
+  }
+
+  .info-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  .info-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .info-label {
+    background: var(--royal) !important;
+    color: white;
+    font-weight: 600;
+    width: 130px;
+    font-size: 11.5px;
+  }
+
+  .info-value {
+    color: var(--text-mid);
+    font-weight: 400;
+  }
+
+  .info-value a {
+    color: var(--azure);
+    text-decoration: none;
+    font-size: 10.5px;
+    direction: ltr;
+    unicode-bidi: embed;
+  }
+
+  /* ===== BODY ===== */
+  .body-content {
+    padding: 0 50px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Section heading */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0 12px;
+  }
+
+  .section-num {
+    width: 30px; height: 30px;
+    background: var(--navy);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-family: 'Amiri', serif;
+  }
+
+  .section-title-text {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--navy);
+    border-bottom: 2px solid var(--azure);
+    padding-bottom: 3px;
+    flex: 1;
+  }
+
+  .sub-heading {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--azure);
+    margin: 14px 0 8px;
+    padding-right: 10px;
+    border-right: 3px solid var(--gold);
+  }
+
+  .body-text {
+    font-size: 12.5px;
+    color: var(--text-mid);
+    line-height: 2;
+    text-align: justify;
+    margin-bottom: 8px;
+  }
+
+  /* Bullets */
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 10px;
+  }
+
+  .bullet-list li {
+    font-size: 12px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+
+  .bullet-list li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 8px;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  /* Two-column section */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 10px 0;
+  }
+
+  .col-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--azure);
+    padding: 12px 14px;
+    border-radius: 4px;
+  }
+
+  .col-card-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .col-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .col-card ul li {
+    font-size: 11px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    padding-right: 10px;
+    position: relative;
+  }
+
+  .col-card ul li::before {
+    content: '–';
+    position: absolute;
+    right: 0;
+    color: var(--azure);
+  }
+
+  /* Stats strip */
+  .stats-strip {
+    display: flex;
+    background: var(--navy);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 14px 0;
+  }
+
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 14px 10px;
+    border-left: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .stat-item:last-child { border-left: none; }
+
+  .stat-num {
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* Link pill */
+  .link-pill {
+    display: inline-block;
+    background: #EBF5FB;
+    border: 1px solid var(--sky);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 10.5px;
+    color: var(--azure);
+    text-decoration: none;
+    direction: ltr;
+    unicode-bidi: embed;
+    margin-top: 4px;
+  }
+
+  /* ===== SIGN-OFF ===== */
+  .signoff {
+    padding: 16px 50px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .signoff-text {
+    font-family: 'Amiri', serif;
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .signoff-block {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .signoff-info {
+    text-align: right;
+  }
+
+  .signoff-name {
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .signoff-role {
+    font-size: 11px;
+    color: var(--text-soft);
+    line-height: 1.9;
+  }
+
+  .signoff-seal {
+    width: 72px; height: 72px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 8px;
+    flex-shrink: 0;
+  }
+
+  .seal-top {
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .seal-icon {
+    font-size: 18px;
+    color: var(--gold);
+    margin: 2px 0;
+  }
+
+  .seal-bottom {
+    font-size: 7px;
+    color: var(--text-soft);
+    line-height: 1.4;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+    background: var(--navy);
+    padding: 14px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Amiri', serif;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.7);
+    font-size: 10px;
+    text-decoration: none;
+    direction: ltr;
+    unicode-bidi: embed;
+  }
+
+  .footer-copy {
+    color: rgba(255,255,255,0.4);
+    font-size: 9.5px;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="corner-gold"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="doc-meta">
+        <span>رقم: <strong>–</strong></span>
+        <span>التاريخ: <strong>2025 / 2026</strong></span>
+        <span>الفصل: <strong>الثاني</strong></span>
+      </div>
+      <div class="ministry-block">
+        <div class="ministry-name">
+          وزارة التربية والتعليم – سلطنة عُمان<br>
+          مديرية تعليم شمال الباطنة
+        </div>
+      </div>
+    </div>
+
+    <div class="header-divider">
+      <div class="divider-line rev"></div>
+      <div class="divider-ornament">❧</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="bismillah">بسم الله الرحمن الرحيم</div>
+
+    <div class="title-block">
+      <div class="title-label">مذكرة تعريفية رسمية</div>
+      <div class="title-main">مشروع منصة ارتقِ للتعليم الرقمي</div>
+      <div class="title-sub">مادة اللغة العربية – الصف الخامس الأساسي</div>
+      <div class="title-underline"></div>
+    </div>
+  </div>
+
+  <!-- INFO TABLE -->
+  <div class="info-table-wrap">
+    <table class="info-table">
+      <tr>
+        <td class="info-label">اسم المعلم</td>
+        <td class="info-value">خليل البلوشي</td>
+        <td class="info-label">المدرسة</td>
+        <td class="info-value">مدرسة سعد بن معاذ للتعليم الأساسي</td>
+      </tr>
+      <tr>
+        <td class="info-label">المديرية</td>
+        <td class="info-value">تعليم شمال الباطنة</td>
+        <td class="info-label">الصف المستهدف</td>
+        <td class="info-value">الصف الخامس الأساسي – مادة اللغة العربية</td>
+      </tr>
+      <tr>
+        <td class="info-label">رابط المنصة</td>
+        <td class="info-value"><a href="https://omk811.github.io/khalil-albalushi/">omk811.github.io/khalil-albalushi</a></td>
+        <td class="info-label">قناة يوتيوب</td>
+        <td class="info-value"><a href="https://youtube.com/@teacherKhalil811">@teacherKhalil811</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- STATS -->
+  <div style="padding: 0 50px; position:relative; z-index:1;">
+    <div class="stats-strip">
+      <div class="stat-item">
+        <span class="stat-num">٧+</span>
+        <span class="stat-label">ألعاب تفاعلية</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">١٠+</span>
+        <span class="stat-label">درس مرئي</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">٣</span>
+        <span class="stat-label">محاور تعليمية</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">٢</span>
+        <span class="stat-label">فصلان دراسيان</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">٣</span>
+        <span class="stat-label">منصات رقمية</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body-content">
+
+    <!-- Section 1 -->
+    <div class="section-heading">
+      <div class="section-num">١</div>
+      <div class="section-title-text">نبذة عن المشروع</div>
+    </div>
+    <p class="body-text">
+      منصة <strong>ارتقِ</strong> بيئة تعليمية رقمية متكاملة أنشأها المعلم خليل البلوشي بهدف تحسين مستوى الطلبة في مادة اللغة العربية، عبر دمج أساليب التعلم الحديثة مع المنهج العُماني المعتمد. تُقدّم المنصة شروحات تفاعلية، وألعاباً تعليمية، وفيديوهات توضيحية في بيئة رقمية سهلة الاستخدام، متاحة للطلبة وأولياء الأمور على مدار الساعة دون الحاجة إلى تسجيل دخول أو برامج إضافية.
+    </p>
+
+    <!-- Section 2 -->
+    <div class="section-heading">
+      <div class="section-num">٢</div>
+      <div class="section-title-text">مكونات المنصة</div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-card">
+        <div class="col-card-title">📚 منصة ارتقِ التفاعلية</div>
+        <ul>
+          <li>شروحات نحوية وإملائية وأدبية تفاعلية</li>
+          <li>أكثر من ٧ ألعاب تعليمية</li>
+          <li>تدريبات على الترقيم والإملاء</li>
+          <li>تغطية كاملة للفصل الثاني</li>
+        </ul>
+        <a href="https://omk811.github.io/Semester2/" class="link-pill">omk811.github.io/Semester2</a>
+      </div>
+      <div class="col-card">
+        <div class="col-card-title">🎬 منصة لغتي – قناة الفيديو</div>
+        <ul>
+          <li>أكثر من ١٠ دروس مسجّلة بجودة عالية</li>
+          <li>تغطية الفصلين الأول والثاني</li>
+          <li>أسلوب مبسّط يناسب الطلبة وأسرهم</li>
+          <li>نحو وصرف وإملاء</li>
+        </ul>
+        <a href="https://youtube.com/@teacherKhalil811" class="link-pill">@teacherKhalil811</a>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-heading">
+      <div class="section-num">٣</div>
+      <div class="section-title-text">المحاور التعليمية والأثر</div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="sub-heading">المحاور المشمولة</div>
+        <ul class="bullet-list">
+          <li>النحو: كان وأخواتها، إن وأخواتها، المبتدأ والخبر، النعت</li>
+          <li>الإملاء: الهمزات، التاء المربوطة، الألف اللينة</li>
+          <li>النصوص الأدبية وفهم المقروء</li>
+          <li>علامات الترقيم وتوظيفها</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sub-heading">الأثر التعليمي</div>
+        <ul class="bullet-list">
+          <li>رفع مستوى مشاركة الطلبة وتحفيزهم</li>
+          <li>تعزيز التواصل مع أولياء الأمور</li>
+          <li>إتاحة التعلم خارج أوقات الدراسة</li>
+          <li>بناء مجتمع تعليمي رقمي نشط</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section-heading">
+      <div class="section-num">٤</div>
+      <div class="section-title-text">طلب الدعم والشراكة</div>
+    </div>
+    <p class="body-text">يُقدِّم المعلم خليل البلوشي هذه المذكرة راجياً من الجهات المعنية في وزارة التربية والتعليم النظر في:</p>
+    <ul class="bullet-list">
+      <li>الاطلاع على المنصة وتقييمها كنموذج للتحول الرقمي في تدريس اللغة العربية</li>
+      <li>دعم تطوير المنصة وتوسيع نطاقها لتشمل صفوفاً ومدارس أخرى</li>
+      <li>توثيق التجربة ضمن مبادرات التعليم الرقمي في المحافظة والوزارة</li>
+      <li>توفير التوجيه والإرشاد لرفع مستوى المحتوى وتطويره</li>
+    </ul>
+
+  </div>
+
+  <!-- SIGN OFF -->
+  <div class="signoff">
+    <p class="signoff-text">وتقبّلوا فائق الاحترام والتقدير،</p>
+    <div class="signoff-block">
+      <div class="signoff-seal">
+        <span class="seal-top">منصة<br>ارتقِ</span>
+        <span class="seal-icon">✦</span>
+        <span class="seal-bottom">2025 / 2026<br>عُمان</span>
+      </div>
+      <div class="signoff-info">
+        <div class="signoff-name">/ خليل البلوشي</div>
+        <div class="signoff-role">
+          معلم اللغة العربية – الصف الخامس الأساسي<br>
+          مدرسة سعد بن معاذ للتعليم الأساسي<br>
+          مديرية تعليم شمال الباطنة – سلطنة عُمان
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-copy">© 2025 / 2026 جميع الحقوق محفوظة</div>
+    <div class="footer-links">
+      <a href="https://omk811.blogspot.com">omk811.blogspot.com</a>
+      <a href="https://omk811.github.io/khalil-albalushi/ /a>
+    </div>
+    <div class="footer-brand">منصة ارتقِ</div>
+  </div>
+
+</div>
+
+</body>
+</html>
